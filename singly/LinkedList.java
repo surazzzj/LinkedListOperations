@@ -26,9 +26,8 @@ public class LinkedList {
         }
 
         Node temp = head;
-        while (temp.next != null) {
+        while (temp.next != null)
             temp = temp.next;
-        }
 
         temp.next = newNode;
 
@@ -57,9 +56,8 @@ public class LinkedList {
         Node temp = head;
         int index = 0;
         while (temp.next != null) {
-            if (index == position - 1) {
+            if (index == position - 1)
                 break;
-            }
 
             temp = temp.next;
             index++;
@@ -67,8 +65,8 @@ public class LinkedList {
         }
 
         if (temp.next == null) {
-       System.out.println("Position out of bound !");
-       return;
+            System.out.println("Position out of bound !");
+            return;
         }
 
         // insert
@@ -93,6 +91,57 @@ public class LinkedList {
             temp = temp.next;
         }
         // System.out.println();
+    }
+
+    // Delete from beginning
+    public void deleteFirst() {
+        if (head == null)
+            System.out.println("List is empty!, no node to delete");
+        head = head.next;
+    }
+
+    // Delete from last
+    public void deleteLast() {
+        if (head == null) {
+            System.out.println("List is empty!, no node to delete");
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
+        Node temp = head;
+        while (temp.next.next != null)
+            temp = temp.next;
+
+        temp.next = null;
+    }
+
+    // Delete from specific position
+    public void deleteFromPosition(int position) {
+        if (head == null) {
+            System.out.println("List is empty!, no node to delete");
+            return;
+        }
+
+        if (position == 0) {
+            head = head.next;
+            return;
+        }
+
+        Node temp = head;
+        for (int i = 0; i < position - 1 && temp != null; i++)
+            temp = temp.next;
+
+        if (temp == null || temp.next == null) {
+            System.out.println("Position is out of bound!");
+            return;
+        }
+
+        temp.next = temp.next.next;
+
     }
 
 }
