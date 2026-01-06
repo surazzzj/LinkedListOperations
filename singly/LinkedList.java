@@ -17,7 +17,7 @@ public class LinkedList {
     }
 
     // Insert at last
-    public void insertAtLast(int item) {
+    public void insertAtEnd(int item) {
         Node newNode = new Node(item);
 
         if (head == null) {
@@ -141,7 +141,16 @@ public class LinkedList {
         }
 
         temp.next = temp.next.next;
+    }
 
+    public boolean searchData(int data) {
+        Node temp = head;
+        while (temp != null) {
+            if (temp.data == data)
+                return true;
+        }
+
+        return false;
     }
 
 }
