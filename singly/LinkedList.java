@@ -84,13 +84,15 @@ public class LinkedList {
 
         Node temp = head;
         while (temp != null) {
-            if (temp.next == null)
-                System.out.print(temp.data);
-            else
-                System.out.print(temp.data + " => ");
+            System.out.print(temp.data);
+
+            if (temp.next != null) {
+                System.out.print(" => ");
+            }
+
             temp = temp.next;
         }
-        // System.out.println();
+        System.out.println(); 
     }
 
     // Delete from beginning
@@ -147,7 +149,9 @@ public class LinkedList {
         Node temp = head;
         while (temp != null) {
             if (temp.data == data)
-                return true;
+                return true; // data found
+
+            temp = temp.next;
         }
 
         return false;

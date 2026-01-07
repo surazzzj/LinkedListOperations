@@ -3,14 +3,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void printMenu() {
-        System.out.println("********MENU********");
+        System.out.println("");
+        System.out.println("************ MENU ***********");
         System.out.println("ENTER 1 TO INSERT");
         System.out.println("ENTER 2 TO DELETE");
         System.out.println("ENTER 3 TO SEARCH");
         System.out.println("ENTER 4 TO DISPLAY");
-          System.out.println("ENTER 5 TO EXIT");
+        System.out.println("ENTER 5 TO EXIT");
+
         System.out.println("Enter your choice?");
-        System.out.println("********************");
+        System.out.println("**************************");
     }
 
     public static void printInsertMenu() {
@@ -72,10 +74,17 @@ public class Main {
                         }
                     }
 
-                    case 4 -> // exit
-                        System.out.println("Thank you for using App..");
+                    case 4 ->
+                        // display
+                        linkedList.printData();
 
-                    default -> System.out.println("Invalid Choice !");
+                    case 5 -> {
+                        // exit
+                        System.out.println("Thank you for using App 😊");
+                        System.exit(0);
+                    }
+
+                    default -> System.out.println("Invalid Choice ❌");
                 }
 
             } catch (Exception e) {
@@ -92,27 +101,27 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int insertChoice = scanner.nextInt();
         switch (insertChoice) {
-            case 1 ->                 {
-                    System.out.println("Enter your data:");
-                    int data = scanner.nextInt();
-                    linkedList.insertAtBeginning(data);
-                    System.out.println("Success...!");
-                }
-            case 2 ->                 {
-                    System.out.println("Enter your data:");
-                    int data = scanner.nextInt();
-                    linkedList.insertAtEnd(data);
-                    System.out.println("Success...!");
-                }
-            case 3 ->                 {
-                    System.out.println("Enter position:");
-                    int position = scanner.nextInt();
-                    System.out.println("Enter data:");
-                    int data = scanner.nextInt();
-                    linkedList.insertAtPosition(data, position);
-                    System.out.println("Success...!");
-                }
-            default -> System.out.println("Invalid Choice...!");
+            case 1 -> {
+                System.out.println("Enter your data:");
+                int data = scanner.nextInt();
+                linkedList.insertAtBeginning(data);
+                System.out.println("Success ✅");
+            }
+            case 2 -> {
+                System.out.println("Enter your data:");
+                int data = scanner.nextInt();
+                linkedList.insertAtEnd(data);
+                System.out.println("Success ✅");
+            }
+            case 3 -> {
+                System.out.println("Enter position:");
+                int position = scanner.nextInt();
+                System.out.println("Enter data:");
+                int data = scanner.nextInt();
+                linkedList.insertAtPosition(data, position);
+                System.out.println("Success ✅");
+            }
+            default -> System.out.println("Invalid Choice ❌");
         }
 
     }
@@ -126,19 +135,19 @@ public class Main {
         switch (deleteChoice) {
             case 1 -> {
                 linkedList.deleteFirst();
-                System.out.println("Deleted...!");
+                System.out.println("Deleted !");
             }
             case 2 -> {
                 linkedList.deleteLast();
-                System.out.println("Deleted...!");
+                System.out.println("Deleted !");
             }
             case 3 -> {
                 System.out.println("Enter the position:");
                 int position = scanner.nextInt();
                 linkedList.deleteFromPosition(position);
-                System.out.println("Deleted...!");
+                System.out.println("Deleted !");
             }
-            default -> System.out.println("Invalid Delete Choice");
+            default -> System.out.println("Invalid Delete Choice ❌");
         }
     }
 }
